@@ -1,6 +1,6 @@
 {
         "manifest_version": 3,
-       "name": "TabClipper",
+	"name": "tabclipper",
 	"description": "Copy browser tabs to (or create them from) your clipboard.",
 	"version": "1.4",
        "author": "Sajid Ahamed (forked from Josh Dick)",
@@ -10,7 +10,6 @@
 		"48": "img/tabclip_48.png",
 		"128": "img/tabclip_128.png"
 	},
-	"homepage_url": "https://github.com/crxssrazr93/tabclipper",
         "action": {
                 "default_icon": "img/tabclip_128.png",
                 "default_popup": "popup.htm",

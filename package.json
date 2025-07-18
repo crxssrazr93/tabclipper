@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sajidahamed/tabclipper.git"
+    "url": "https://github.com/crxssrazr93/tabclipper.git"
   },
   "keywords": [
     "browser",
@@ -24,9 +24,9 @@
   "author": "Sajid Ahamed (forked from Josh Dick)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sajidahamed/tabclipper/issues"
+    "url": "https://github.com/crxssrazr93/tabclipper/issues"
   },
-  "homepage": "https://github.com/sajidahamed/tabclipper",
+  "homepage": "https://github.com/crxssrazr93/tabclipper",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",

@@ -26,7 +26,7 @@ That's it!
 
 ## Feedback
 
-If you have suggestions or bug reports for TabClipper, I am much more likely to see your feedback if you leave it at [TabClipper's GitHub Issues page](https://github.com/sajidahamed/tabclipper/issues) rather than on TabClipper's Firefox Add-Ons or Chrome Web Store pages.
+If you have suggestions or bug reports for TabClipper, I am much more likely to see your feedback if you leave it at [TabClipper's GitHub Issues page](https://github.com/crxssrazr93/tabclipper/issues) rather than on TabClipper's Firefox Add-Ons or Chrome Web Store pages.
 
 I'd like to keep this extension as simple and minimal as possible, so most feature requests are not likely to be honored.
 
@@ -35,7 +35,7 @@ I'd like to keep this extension as simple and minimal as possible, so most featu
 To build TabClipper for both Firefox and Chrome, install the latest versions of NodeJS and `npm`, then do the following:
 
 ```bash
-git clone https://github.com/sajidahamed/tabclipper.git
+git clone https://github.com/crxssrazr93/tabclipper.git
 cd tabclipper
 npm install
 npx webpack

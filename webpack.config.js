@@ -8,7 +8,7 @@ const ZipPlugin = require('zip-webpack-plugin')
 
 const zipPluginConfig = {
 	exclude: ['.DS_Store'],
-	filename: 'tabclip.zip',
+	filename: 'tabclipper.zip',
 	// yazl Options
 	// OPTIONAL: see https://github.com/thejoshwolfe/yazl#addfilerealpath-metadatapath-options
 	fileOptions: {

@@ -5,10 +5,10 @@ const showNotification = async (quantity, operation) => {
 	const idSuffix = operation === shared.ALERT_OPERATIONS.COPY ? 'copy' : 'paste'
 	const titleVerb = operation === shared.ALERT_OPERATIONS.COPY ? 'Copy' : 'Paste'
 	const messageVerb = operation === shared.ALERT_OPERATIONS.COPY ? 'Copied' : 'Pasted'
-	await browser.notifications.create(`tabclip-${idSuffix}`, {
+	await browser.notifications.create(`tabclipper-${idSuffix}`, {
 		type: 'basic',
 		iconUrl: browser.extension.getURL('img/tabclip_128.png'),
-		title: `Tabclip ${titleVerb}`,
+		title: `TabClipper ${titleVerb}`,
 		message: `${messageVerb} ${quantity} URL${quantity === 1 ? '' : 's'}.`,
 	})
 }

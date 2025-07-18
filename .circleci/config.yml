@@ -40,4 +40,4 @@ jobs:
       - run: npx webpack
 
       - store_artifacts:
-          path: dist/tabclip.zip
+          path: dist/tabclipper.zip

@@ -1,8 +1,11 @@
 const browser = require('webextension-polyfill')
 const urlRegex = require('url-regex-safe')
 
-const clipboardBridge = document.querySelector('#clipboardBridge')
-clipboardBridge.contentEditable = true
+let clipboardBridge = null
+if (typeof document !== 'undefined') {
+        clipboardBridge = document.querySelector('#clipboardBridge')
+        if (clipboardBridge) clipboardBridge.contentEditable = true
+}
 
 const ALERT_OPERATIONS = Object.freeze({
 	COPY: Symbol('copy'),
@@ -10,42 +13,44 @@ const ALERT_OPERATIONS = Object.freeze({
 })
 
 const readFromClipboard = async () => {
-	let result = ''
+        if (navigator.clipboard && navigator.clipboard.readText) {
+                try {
+                        return await navigator.clipboard.readText()
+                } catch (error) {
+                        // Disregard any error; fall back if possible
+                }
+        }
 
-	clipboardBridge.focus()
-	document.execCommand('selectAll')
-	document.execCommand('paste')
-	result = clipboardBridge.innerText
-	clipboardBridge.innerText = ''
+        if (clipboardBridge) {
+                let result = ''
+                clipboardBridge.focus()
+                document.execCommand('selectAll')
+                document.execCommand('paste')
+                result = clipboardBridge.innerText
+                clipboardBridge.innerText = ''
+                return result
+        }
 
-	if (!result && navigator.clipboard) {
-		try {
-			// Can cause Chrome to block without throwing an error,
-			// so try it only after attempting the method above
-			result = await navigator.clipboard.readText()
-		} catch (error) {
-			// Disregard any error
-		}
-	}
-
-	return result
+        return ''
 }
 
 const writeToClipboard = async (text) => {
-	if (navigator.clipboard) {
-		try {
-			await navigator.clipboard.writeText(text)
-			return
-		} catch (error) {
-			// Disregard any error; try alternate method below
-		}
-	}
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+                try {
+                        await navigator.clipboard.writeText(text)
+                        return
+                } catch (error) {
+                        // Disregard any error; try alternate method below
+                }
+        }
 
-	clipboardBridge.innerText = text
-	clipboardBridge.focus()
-	document.execCommand('selectAll')
-	document.execCommand('copy')
-	clipboardBridge.innerText = ''
+        if (clipboardBridge) {
+                clipboardBridge.innerText = text
+                clipboardBridge.focus()
+                document.execCommand('selectAll')
+                document.execCommand('copy')
+                clipboardBridge.innerText = ''
+        }
 }
 
 const copyTabs = async (currentWindow, includeTitles) => {

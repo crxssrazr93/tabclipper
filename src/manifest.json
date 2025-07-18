@@ -1,5 +1,5 @@
 {
-	"manifest_version": 2,
+        "manifest_version": 3,
 	"name": "tabclip",
 	"description": "Copy browser tabs to (or create them from) your clipboard.",
 	"version": "1.4",
@@ -11,14 +11,14 @@
 		"128": "img/tabclip_128.png"
 	},
 	"homepage_url": "https://joshdick.github.io/tabclip",
-	"browser_action": {
-		"default_icon": "img/tabclip_128.png",
-		"default_popup": "popup.htm",
-		"default_title": "tabclip"
-	},
-	"background": {
-		"page": "background.htm"
-	},
+        "action": {
+                "default_icon": "img/tabclip_128.png",
+                "default_popup": "popup.htm",
+                "default_title": "tabclip"
+        },
+        "background": {
+                "service_worker": "background.bundle.js"
+        },
 	"commands": {
 		"copy-tabs": {
 			"suggested_key": {
@@ -38,5 +38,7 @@
 	"permissions": [
 		"clipboardRead", "clipboardWrite", "notifications", "storage", "tabs"
 	],
-	"content_security_policy": "script-src 'self'; object-src 'self'"
+        "content_security_policy": {
+                "extension_pages": "script-src 'self'; object-src 'self'"
+        }
 }
